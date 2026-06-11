@@ -155,16 +155,29 @@ function Home() {
           <div className="mt-20 grid lg:grid-cols-3 gap-px bg-border border border-border">
             {[
               {
-                t: "Construction & Installation",
-                items: ["Driveway", "Interior Wall", "Retaining Wall", "Walkway / Pathway", "Exterior Wall", "Patio, Porch or Terrace", "Steps"],
+                t: "Trees & Shrubs",
+                items: [
+                  "Tree Planting", "Tree Pruning / Trimming", "Tree Removal", "Tree Stump Removal",
+                  "Tree Transplanting", "Tree Cabling / Bracing", "Shrub Planting",
+                  "Shrub Pruning / Trimming", "Shrub Removal", "Shrub Transplanting",
+                  "Disease Management — Shrubs", "Insect Management — Shrubs",
+                ],
               },
               {
-                t: "Hardscape Materials",
-                items: ["Brick", "Concrete / Cinder Block", "Stamped Concrete", "Textured Concrete"],
+                t: "Landscape & Hardscape",
+                items: [
+                  "Landscape Design", "Greenscape Construction", "Landscaping Building Construction",
+                  "Earthmoving / Regrading", "Construction & Installation", "Retaining Walls",
+                  "Patios, Walkways & Steps", "Driveways", "Gardening", "Lawn Care",
+                ],
               },
               {
-                t: "Surface Materials",
-                items: ["Asphalt", "Concrete", "Gravel", "Stone"],
+                t: "Irrigation & Seasonal",
+                items: [
+                  "Irrigation Design", "Irrigation Construction",
+                  "Irrigation Repair & Maintenance", "Sod & Grass Installation",
+                  "Artificial Turf", "Snow Removal", "Ice Control",
+                ],
               },
             ].map((g) => (
               <div key={g.t} className="bg-card p-8">

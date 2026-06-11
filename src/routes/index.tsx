@@ -276,14 +276,17 @@ function Home() {
             {[
               { src: beforeAfter1.url, alt: "Roadside landscape bed transformed from dry mulch into a clean river-rock bed with thriving ornamental grass." },
               { src: beforeAfter2.url, alt: "Backyard transformed from bare dirt and debris into a freshly installed, manicured sod lawn." },
-            ].map((img) => (
-              <figure key={img.src} className="relative border border-border bg-card overflow-hidden">
+            ].map((img, i) => (
+              <figure key={img.src} className="group relative border border-border bg-card overflow-hidden">
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="w-full aspect-square object-cover"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
+                <figcaption className="absolute top-4 left-4 px-3 py-1 bg-background/90 backdrop-blur-sm text-[10px] font-mono font-bold uppercase tracking-widest">
+                  Project · 0{i + 1}
+                </figcaption>
               </figure>
             ))}
           </div>

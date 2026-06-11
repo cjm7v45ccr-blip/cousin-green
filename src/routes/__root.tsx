@@ -115,7 +115,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             postalCode: "98801",
             addressCountry: "US",
           },
-          openingHours: "Mo-Su 00:00-23:59",
+          openingHours: "Mo-Su 05:00-21:00",
+          areaServed: "Wenatchee Valley, WA",
+          foundingDate: "2008",
+          paymentAccepted: "Cash, Credit Card, Venmo, PayPal, Cash App",
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "4.3",

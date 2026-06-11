@@ -160,6 +160,77 @@ function Home() {
               </div>
             ))}
           </div>
+
+          {/* Construction & Installation capabilities */}
+          <div className="mt-20 grid lg:grid-cols-3 gap-px bg-border border border-border">
+            {[
+              {
+                t: "Construction & Installation",
+                items: ["Driveway", "Interior Wall", "Retaining Wall", "Walkway / Pathway", "Exterior Wall", "Patio, Porch or Terrace", "Steps"],
+              },
+              {
+                t: "Hardscape Materials",
+                items: ["Brick", "Concrete / Cinder Block", "Stamped Concrete", "Textured Concrete"],
+              },
+              {
+                t: "Surface Materials",
+                items: ["Asphalt", "Concrete", "Gravel", "Stone"],
+              },
+            ].map((g) => (
+              <div key={g.t} className="bg-card p-8">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="h-1.5 w-1.5 bg-accent rounded-full" />
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                    Verified by Business
+                  </span>
+                </div>
+                <h3 className="font-bold mb-5 uppercase tracking-tight text-sm">
+                  {g.t}
+                </h3>
+                <ul className="space-y-2">
+                  {g.items.map((i) => (
+                    <li key={i} className="text-xs text-muted-foreground font-mono flex items-center gap-2">
+                      <span className="text-accent">+</span> {i}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Before / After Gallery */}
+      <section className="px-4 py-24 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-2">
+                Recent Work
+              </span>
+              <h2 className="text-4xl font-extrabold tracking-tighter">
+                BEFORE &amp; AFTER
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-sm text-sm font-medium leading-relaxed">
+              Real Wenatchee properties, transformed through detail and grit.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { src: beforeAfter1.url, alt: "Roadside landscape bed transformed from dry mulch into a clean river-rock bed with thriving ornamental grass." },
+              { src: beforeAfter2.url, alt: "Backyard transformed from bare dirt and debris into a freshly installed, manicured sod lawn." },
+            ].map((img) => (
+              <figure key={img.src} className="relative border border-border bg-card overflow-hidden">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full aspect-square object-cover"
+                />
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -181,7 +252,6 @@ function Home() {
                     Every edge is hand-checked. Every block is perfectly leveled.
                   </p>
                 </div>
-              </li>
               </li>
               <li className="flex gap-4">
                 <span className="text-accent font-mono text-xs font-bold">/02</span>

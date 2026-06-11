@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Phone, MapPin, Clock, Star, Check, ArrowRight, Heart, Users, Leaf, Hammer, Droplets } from "lucide-react";
 import beforeAfter1 from "@/assets/before-after-1.png.asset.json";
 import beforeAfter2 from "@/assets/before-after-2.png.asset.json";
 
@@ -43,9 +44,11 @@ function Home() {
           </div>
           <a
             href={PHONE_HREF}
-            className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
-            {PHONE_DISPLAY}
+            <Phone className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+            <span className="sm:hidden">Call</span>
           </a>
         </div>
       </nav>
@@ -54,13 +57,13 @@ function Home() {
       <header className="relative px-4 pt-20 pb-16 overflow-hidden">
         <div className="max-w-3xl mx-auto">
           <div className="animate-reveal">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 rounded-full border border-primary/10 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10 mb-6">
               <span className="flex gap-0.5" aria-hidden="true">
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent/50 text-xs">★</span>
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent/30 text-accent/30" />
               </span>
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-primary">
                 4.3 Rating · 6 Google Reviews
@@ -74,14 +77,15 @@ function Home() {
               Professional yard maintenance, structural block walls, and grass
               installation for Wenatchee homeowners who value detail over gloss.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={PHONE_HREF}
-                className="bg-foreground text-background px-8 py-4 text-sm font-bold uppercase tracking-widest ring-1 ring-foreground/10 hover:bg-accent hover:text-accent-foreground hover:ring-accent transition-all"
+                className="inline-flex items-center gap-2 bg-foreground text-background px-7 py-4 text-sm font-bold uppercase tracking-widest hover:bg-accent hover:text-accent-foreground transition-colors"
               >
+                <Phone className="h-4 w-4" />
                 Call for Quote
               </a>
-              <div className="flex items-center gap-3 px-6 py-4 border border-border bg-card/50 text-xs font-mono font-medium uppercase">
+              <div className="inline-flex items-center gap-2.5 px-5 py-4 border border-border bg-card/50 text-xs font-mono font-medium uppercase">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -226,26 +230,30 @@ function Home() {
                   "Artificial Turf", "Snow Removal", "Ice Control",
                 ],
               },
-            ].map((g) => (
-              <div key={g.t} className="bg-card p-8">
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="h-1.5 w-1.5 bg-accent rounded-full" />
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
-                    Verified by Business
-                  </span>
+            ].map((g, idx) => {
+              const Icon = [Leaf, Hammer, Droplets][idx];
+              return (
+                <div key={g.t} className="bg-card p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
+                      Verified
+                    </span>
+                  </div>
+                  <h3 className="font-bold mb-5 uppercase tracking-tight text-sm">
+                    {g.t}
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {g.items.map((i) => (
+                      <li key={i} className="text-xs text-muted-foreground flex items-start gap-2 leading-relaxed">
+                        <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
+                        <span>{i}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="font-bold mb-5 uppercase tracking-tight text-sm">
-                  {g.t}
-                </h3>
-                <ul className="space-y-2">
-                  {g.items.map((i) => (
-                    <li key={i} className="text-xs text-muted-foreground font-mono flex items-center gap-2">
-                      <span className="text-accent">+</span> {i}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -270,14 +278,17 @@ function Home() {
             {[
               { src: beforeAfter1.url, alt: "Roadside landscape bed transformed from dry mulch into a clean river-rock bed with thriving ornamental grass." },
               { src: beforeAfter2.url, alt: "Backyard transformed from bare dirt and debris into a freshly installed, manicured sod lawn." },
-            ].map((img) => (
-              <figure key={img.src} className="relative border border-border bg-card overflow-hidden">
+            ].map((img, i) => (
+              <figure key={img.src} className="group relative border border-border bg-card overflow-hidden">
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="w-full aspect-square object-cover"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
+                <figcaption className="absolute top-4 left-4 px-3 py-1 bg-background/90 backdrop-blur-sm text-[10px] font-mono font-bold uppercase tracking-widest">
+                  Project · 0{i + 1}
+                </figcaption>
               </figure>
             ))}
           </div>
@@ -387,7 +398,7 @@ function Home() {
                 "Accepts Cash App",
               ].map((p) => (
                 <li key={p} className="flex items-center gap-2">
-                  <span className="text-accent font-bold">✓</span> {p}
+                  <Check className="h-4 w-4 text-accent shrink-0" strokeWidth={2.5} /> {p}
                 </li>
               ))}
             </ul>
@@ -397,11 +408,11 @@ function Home() {
               Ownership
             </span>
             <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
-                <span className="text-accent">♥</span> Latinx-Owned
+              <span className="inline-flex items-center gap-2 px-4 py-2.5 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <Heart className="h-3.5 w-3.5 text-accent fill-accent" /> Latinx-Owned
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
-                <span className="text-accent">◐</span> Women-Owned
+              <span className="inline-flex items-center gap-2 px-4 py-2.5 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <Users className="h-3.5 w-3.5 text-accent" /> Women-Owned
               </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed mt-2">
@@ -415,23 +426,23 @@ function Home() {
       {/* Contact Footer */}
       <footer className="px-4 py-24 bg-foreground text-background">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16">
-          <div className="space-y-6">
-            <span className="text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
-              Visit Our Office
+          <div className="space-y-5">
+            <span className="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
+              <MapPin className="h-3.5 w-3.5" /> Visit Our Office
             </span>
             <address className="not-italic text-xl font-semibold tracking-tight leading-snug">
               822 Cashmere St
               <br />
               Wenatchee, WA 98801
             </address>
-            <p className="text-sm text-background/60 font-mono">
-              Mon – Sun · 5:00 AM – 9:00 PM
+            <p className="inline-flex items-center gap-2 text-sm text-background/60 font-mono">
+              <Clock className="h-3.5 w-3.5" /> Mon – Sun · 5 AM – 9 PM
             </p>
           </div>
 
-          <div className="space-y-6">
-            <span className="text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
-              Connect
+          <div className="space-y-5">
+            <span className="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
+              <Phone className="h-3.5 w-3.5" /> Connect
             </span>
             <div className="space-y-2">
               <a
@@ -449,12 +460,10 @@ function Home() {
           <div className="flex flex-col justify-end items-start md:items-end">
             <a
               href={PHONE_HREF}
-              className="group relative inline-flex items-center gap-4 bg-accent text-accent-foreground px-10 py-6 font-bold uppercase tracking-widest overflow-hidden transition-all hover:pr-12"
+              className="group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
             >
-              <span className="relative z-10">Get Your Estimate</span>
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity">
-                →
-              </span>
+              <span>Get Your Estimate</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>

@@ -86,12 +86,59 @@ function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                Status: Open 24 Hours
+                Mon–Sun · 5AM – 9PM
               </div>
             </div>
           </div>
         </div>
       </header>
+
+      {/* About / History */}
+      <section className="px-4 py-24 border-y border-border bg-background">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-5">
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-3">
+              Est. 2008 · PNW Family-Owned
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-[0.95] mb-6">
+              DIGGING, BUILDING &amp; GROWING SINCE <span className="text-accent italic">2008.</span>
+            </h2>
+            <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+              "Where Quality is Our Calling… and Cousins Get It Done."
+            </p>
+          </div>
+          <div className="lg:col-span-7 space-y-6 text-sm leading-relaxed text-foreground/80">
+            <p>
+              The Cousin Landscape is a PNW family-owned business with over
+              <strong className="text-foreground"> 10 years of experience </strong>
+              delivering reliable, high-quality landscaping services across
+              residential and commercial properties. From retaining walls and
+              patios to artificial turf, sod, and irrigation systems, we
+              create outdoor spaces built to last.
+            </p>
+            <p>
+              We also offer snow removal and ice control, so you can count on
+              us year-round for peace of mind. When you work with us, you're
+              not just hiring a landscaping crew — you're getting a trusted
+              local partner who takes pride in every detail.
+            </p>
+            <div className="grid grid-cols-3 gap-px bg-border border border-border mt-8">
+              {[
+                { k: "10+", v: "Years Experience" },
+                { k: "2008", v: "Year Established" },
+                { k: "4.3★", v: "Google Rating" },
+              ].map((s) => (
+                <div key={s.v} className="bg-card p-5">
+                  <div className="text-2xl font-extrabold tracking-tighter">{s.k}</div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
+                    {s.v}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services */}
       <section className="px-4 py-24 bg-card">
@@ -155,16 +202,29 @@ function Home() {
           <div className="mt-20 grid lg:grid-cols-3 gap-px bg-border border border-border">
             {[
               {
-                t: "Construction & Installation",
-                items: ["Driveway", "Interior Wall", "Retaining Wall", "Walkway / Pathway", "Exterior Wall", "Patio, Porch or Terrace", "Steps"],
+                t: "Trees & Shrubs",
+                items: [
+                  "Tree Planting", "Tree Pruning / Trimming", "Tree Removal", "Tree Stump Removal",
+                  "Tree Transplanting", "Tree Cabling / Bracing", "Shrub Planting",
+                  "Shrub Pruning / Trimming", "Shrub Removal", "Shrub Transplanting",
+                  "Disease Management — Shrubs", "Insect Management — Shrubs",
+                ],
               },
               {
-                t: "Hardscape Materials",
-                items: ["Brick", "Concrete / Cinder Block", "Stamped Concrete", "Textured Concrete"],
+                t: "Landscape & Hardscape",
+                items: [
+                  "Landscape Design", "Greenscape Construction", "Landscaping Building Construction",
+                  "Earthmoving / Regrading", "Construction & Installation", "Retaining Walls",
+                  "Patios, Walkways & Steps", "Driveways", "Gardening", "Lawn Care",
+                ],
               },
               {
-                t: "Surface Materials",
-                items: ["Asphalt", "Concrete", "Gravel", "Stone"],
+                t: "Irrigation & Seasonal",
+                items: [
+                  "Irrigation Design", "Irrigation Construction",
+                  "Irrigation Repair & Maintenance", "Sod & Grass Installation",
+                  "Artificial Turf", "Snow Removal", "Ice Control",
+                ],
               },
             ].map((g) => (
               <div key={g.t} className="bg-card p-8">
@@ -308,6 +368,50 @@ function Home() {
         </div>
       </section>
 
+      {/* Amenities & Payments */}
+      <section className="px-4 py-20 bg-card border-t border-border">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+          <div>
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-3">
+              Amenities &amp; More
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tighter mb-6">
+              FAIR PRICES. FLEXIBLE PAYMENTS.
+            </h2>
+            <ul className="grid grid-cols-2 gap-y-3 text-sm font-medium">
+              {[
+                "Accepts Cash",
+                "Accepts Credit Cards",
+                "Accepts Venmo",
+                "Accepts PayPal",
+                "Accepts Cash App",
+              ].map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="text-accent font-bold">✓</span> {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:border-l md:border-border md:pl-12 flex flex-col justify-center gap-4">
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest">
+              Ownership
+            </span>
+            <div className="flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <span className="text-accent">♥</span> Latinx-Owned
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <span className="text-accent">◐</span> Women-Owned
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+              Proudly serving the Wenatchee Valley with respect, fair pricing,
+              and craftsmanship you can trust.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Footer */}
       <footer className="px-4 py-24 bg-foreground text-background">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16">
@@ -321,7 +425,7 @@ function Home() {
               Wenatchee, WA 98801
             </address>
             <p className="text-sm text-background/60 font-mono">
-              Available 24 Hours / 7 Days
+              Mon – Sun · 5:00 AM – 9:00 PM
             </p>
           </div>
 

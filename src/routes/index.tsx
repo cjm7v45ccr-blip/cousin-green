@@ -1,7 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, MapPin, Clock, Star, Check, ArrowRight, Heart, Users, Leaf, Hammer, Droplets } from "lucide-react";
 import beforeAfter1 from "@/assets/before-after-1.png.asset.json";
 import beforeAfter2 from "@/assets/before-after-2.png.asset.json";
+
+const FEATURED_SERVICES = [
+  {
+    to: "/services/retaining-walls" as const,
+    title: "Retaining Walls",
+    desc: "Engineered block, stone & concrete walls with proper drainage.",
+  },
+  {
+    to: "/services/irrigation-repair" as const,
+    title: "Irrigation Repair",
+    desc: "Sprinkler fixes, valve & controller service, start-ups & blow-outs.",
+  },
+  {
+    to: "/services/snow-removal" as const,
+    title: "Snow Removal",
+    desc: "Plowing, shoveling & ice control — per-storm or seasonal contracts.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({

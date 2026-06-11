@@ -55,13 +55,13 @@ function Home() {
       <header className="relative px-4 pt-20 pb-16 overflow-hidden">
         <div className="max-w-3xl mx-auto">
           <div className="animate-reveal">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 rounded-full border border-primary/10 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/10 mb-6">
               <span className="flex gap-0.5" aria-hidden="true">
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent text-xs">★</span>
-                <span className="text-accent/50 text-xs">★</span>
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent text-accent" />
+                <Star className="h-3 w-3 fill-accent/30 text-accent/30" />
               </span>
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-primary">
                 4.3 Rating · 6 Google Reviews

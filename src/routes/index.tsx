@@ -396,7 +396,7 @@ function Home() {
                 "Accepts Cash App",
               ].map((p) => (
                 <li key={p} className="flex items-center gap-2">
-                  <span className="text-accent font-bold">✓</span> {p}
+                  <Check className="h-4 w-4 text-accent shrink-0" strokeWidth={2.5} /> {p}
                 </li>
               ))}
             </ul>
@@ -406,11 +406,11 @@ function Home() {
               Ownership
             </span>
             <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
-                <span className="text-accent">♥</span> Latinx-Owned
+              <span className="inline-flex items-center gap-2 px-4 py-2.5 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <Heart className="h-3.5 w-3.5 text-accent fill-accent" /> Latinx-Owned
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
-                <span className="text-accent">◐</span> Women-Owned
+              <span className="inline-flex items-center gap-2 px-4 py-2.5 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <Users className="h-3.5 w-3.5 text-accent" /> Women-Owned
               </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed mt-2">

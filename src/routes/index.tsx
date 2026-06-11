@@ -424,23 +424,23 @@ function Home() {
       {/* Contact Footer */}
       <footer className="px-4 py-24 bg-foreground text-background">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16">
-          <div className="space-y-6">
-            <span className="text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
-              Visit Our Office
+          <div className="space-y-5">
+            <span className="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
+              <MapPin className="h-3.5 w-3.5" /> Visit Our Office
             </span>
             <address className="not-italic text-xl font-semibold tracking-tight leading-snug">
               822 Cashmere St
               <br />
               Wenatchee, WA 98801
             </address>
-            <p className="text-sm text-background/60 font-mono">
-              Mon – Sun · 5:00 AM – 9:00 PM
+            <p className="inline-flex items-center gap-2 text-sm text-background/60 font-mono">
+              <Clock className="h-3.5 w-3.5" /> Mon – Sun · 5 AM – 9 PM
             </p>
           </div>
 
-          <div className="space-y-6">
-            <span className="text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
-              Connect
+          <div className="space-y-5">
+            <span className="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-[0.2em]">
+              <Phone className="h-3.5 w-3.5" /> Connect
             </span>
             <div className="space-y-2">
               <a
@@ -458,12 +458,10 @@ function Home() {
           <div className="flex flex-col justify-end items-start md:items-end">
             <a
               href={PHONE_HREF}
-              className="group relative inline-flex items-center gap-4 bg-accent text-accent-foreground px-10 py-6 font-bold uppercase tracking-widest overflow-hidden transition-all hover:pr-12"
+              className="group inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-5 text-sm font-bold uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
             >
-              <span className="relative z-10">Get Your Estimate</span>
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity">
-                →
-              </span>
+              <span>Get Your Estimate</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>

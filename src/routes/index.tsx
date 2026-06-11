@@ -44,9 +44,11 @@ function Home() {
           </div>
           <a
             href={PHONE_HREF}
-            className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
-            {PHONE_DISPLAY}
+            <Phone className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+            <span className="sm:hidden">Call</span>
           </a>
         </div>
       </nav>

@@ -299,7 +299,7 @@ function Home() {
             </ul>
           </div>
 
-          <div className="lg:col-span-8 grid md:grid-cols-2 gap-8">
+          <div className="lg:col-span-8 grid md:grid-cols-3 gap-px bg-border border border-border">
             {[
               {
                 q: "Excellent yard maintenance work. Left everything looking clean, organized, and professionally maintained.",
@@ -312,10 +312,6 @@ function Home() {
               {
                 q: "Very professional, highly recommended for high-quality service.",
                 a: "Erik Escobedo",
-              },
-              {
-                q: "Great service from a team that cares about the work they leave behind.",
-                a: "Pedro Farias",
               },
             ].map((r) => (
               <figure

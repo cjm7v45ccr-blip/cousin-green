@@ -180,6 +180,32 @@ function Home() {
             </p>
           </div>
 
+          {/* Featured service pages */}
+          <div className="grid md:grid-cols-3 gap-px bg-border border border-border mb-12">
+            {FEATURED_SERVICES.map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className="group bg-card p-7 flex flex-col justify-between hover:bg-background transition-colors"
+              >
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                    Service Page
+                  </span>
+                  <h3 className="text-xl font-extrabold tracking-tighter uppercase mt-3 mb-2">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {s.desc}
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-2 mt-6 text-xs font-mono font-bold uppercase tracking-widest text-foreground group-hover:text-accent transition-colors">
+                  Learn More <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+
           {/* Verified service capabilities */}
           <div className="grid lg:grid-cols-3 gap-px bg-border border border-border">
             {[

@@ -368,6 +368,50 @@ function Home() {
         </div>
       </section>
 
+      {/* Amenities & Payments */}
+      <section className="px-4 py-20 bg-card border-t border-border">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+          <div>
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-3">
+              Amenities &amp; More
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tighter mb-6">
+              FAIR PRICES. FLEXIBLE PAYMENTS.
+            </h2>
+            <ul className="grid grid-cols-2 gap-y-3 text-sm font-medium">
+              {[
+                "Accepts Cash",
+                "Accepts Credit Cards",
+                "Accepts Venmo",
+                "Accepts PayPal",
+                "Accepts Cash App",
+              ].map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="text-accent font-bold">✓</span> {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:border-l md:border-border md:pl-12 flex flex-col justify-center gap-4">
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest">
+              Ownership
+            </span>
+            <div className="flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <span className="text-accent">♥</span> Latinx-Owned
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background text-xs font-mono font-bold uppercase tracking-widest">
+                <span className="text-accent">◐</span> Women-Owned
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+              Proudly serving the Wenatchee Valley with respect, fair pricing,
+              and craftsmanship you can trust.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Footer */}
       <footer className="px-4 py-24 bg-foreground text-background">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16">

@@ -1,7 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, MapPin, Clock, Star, Check, ArrowRight, Heart, Users, Leaf, Hammer, Droplets } from "lucide-react";
 import beforeAfter1 from "@/assets/before-after-1.png.asset.json";
 import beforeAfter2 from "@/assets/before-after-2.png.asset.json";
+
+const FEATURED_SERVICES = [
+  {
+    to: "/services/retaining-walls" as const,
+    title: "Retaining Walls",
+    desc: "Engineered block, stone & concrete walls with proper drainage.",
+  },
+  {
+    to: "/services/irrigation-repair" as const,
+    title: "Irrigation Repair",
+    desc: "Sprinkler fixes, valve & controller service, start-ups & blow-outs.",
+  },
+  {
+    to: "/services/snow-removal" as const,
+    title: "Snow Removal",
+    desc: "Plowing, shoveling & ice control — per-storm or seasonal contracts.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -160,6 +178,32 @@ function Home() {
               From design and earthmoving to irrigation, turf, and year-round
               snow &amp; ice control — handled in-house by our crew.
             </p>
+          </div>
+
+          {/* Featured service pages */}
+          <div className="grid md:grid-cols-3 gap-px bg-border border border-border mb-12">
+            {FEATURED_SERVICES.map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className="group bg-card p-7 flex flex-col justify-between hover:bg-background transition-colors"
+              >
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                    Service Page
+                  </span>
+                  <h3 className="text-xl font-extrabold tracking-tighter uppercase mt-3 mb-2">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {s.desc}
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-2 mt-6 text-xs font-mono font-bold uppercase tracking-widest text-foreground group-hover:text-accent transition-colors">
+                  Learn More <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
 
           {/* Verified service capabilities */}

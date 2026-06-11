@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesSnowRemovalRouteImport } from './routes/services.snow-removal'
+import { Route as ServicesRetainingWallsRouteImport } from './routes/services.retaining-walls'
+import { Route as ServicesIrrigationRepairRouteImport } from './routes/services.irrigation-repair'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -22,31 +25,75 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesSnowRemovalRoute = ServicesSnowRemovalRouteImport.update({
+  id: '/services/snow-removal',
+  path: '/services/snow-removal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRetainingWallsRoute = ServicesRetainingWallsRouteImport.update({
+  id: '/services/retaining-walls',
+  path: '/services/retaining-walls',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIrrigationRepairRoute =
+  ServicesIrrigationRepairRouteImport.update({
+    id: '/services/irrigation-repair',
+    path: '/services/irrigation-repair',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/irrigation-repair': typeof ServicesIrrigationRepairRoute
+  '/services/retaining-walls': typeof ServicesRetainingWallsRoute
+  '/services/snow-removal': typeof ServicesSnowRemovalRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/irrigation-repair': typeof ServicesIrrigationRepairRoute
+  '/services/retaining-walls': typeof ServicesRetainingWallsRoute
+  '/services/snow-removal': typeof ServicesSnowRemovalRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/irrigation-repair': typeof ServicesIrrigationRepairRoute
+  '/services/retaining-walls': typeof ServicesRetainingWallsRoute
+  '/services/snow-removal': typeof ServicesSnowRemovalRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/services/irrigation-repair'
+    | '/services/retaining-walls'
+    | '/services/snow-removal'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/services/irrigation-repair'
+    | '/services/retaining-walls'
+    | '/services/snow-removal'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/services/irrigation-repair'
+    | '/services/retaining-walls'
+    | '/services/snow-removal'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ServicesIrrigationRepairRoute: typeof ServicesIrrigationRepairRoute
+  ServicesRetainingWallsRoute: typeof ServicesRetainingWallsRoute
+  ServicesSnowRemovalRoute: typeof ServicesSnowRemovalRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,23 +112,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/snow-removal': {
+      id: '/services/snow-removal'
+      path: '/services/snow-removal'
+      fullPath: '/services/snow-removal'
+      preLoaderRoute: typeof ServicesSnowRemovalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/retaining-walls': {
+      id: '/services/retaining-walls'
+      path: '/services/retaining-walls'
+      fullPath: '/services/retaining-walls'
+      preLoaderRoute: typeof ServicesRetainingWallsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/irrigation-repair': {
+      id: '/services/irrigation-repair'
+      path: '/services/irrigation-repair'
+      fullPath: '/services/irrigation-repair'
+      preLoaderRoute: typeof ServicesIrrigationRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ServicesIrrigationRepairRoute: ServicesIrrigationRepairRoute,
+  ServicesRetainingWallsRoute: ServicesRetainingWallsRoute,
+  ServicesSnowRemovalRoute: ServicesSnowRemovalRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

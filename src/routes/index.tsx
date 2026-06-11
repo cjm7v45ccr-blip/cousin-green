@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImage from "@/assets/hero-landscape.jpg";
 import beforeAfter1 from "@/assets/before-after-1.png.asset.json";
 import beforeAfter2 from "@/assets/before-after-2.png.asset.json";
 
@@ -53,7 +52,7 @@ function Home() {
 
       {/* Hero */}
       <header className="relative px-4 pt-20 pb-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-3xl mx-auto">
           <div className="animate-reveal">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 rounded-full border border-primary/10 mb-6">
               <span className="flex gap-0.5" aria-hidden="true">
@@ -90,15 +89,6 @@ function Home() {
                 Status: Open 24 Hours
               </div>
             </div>
-          </div>
-          <div className="animate-reveal relative" style={{ animationDelay: "150ms" }}>
-            <img
-              src={heroImage}
-              alt="Manicured Pacific Northwest lawn meeting a natural stacked stone block wall with Cascade foothills in the background"
-              width={1200}
-              height={1400}
-              className="w-full aspect-[4/5] object-cover rounded-2xl outline outline-1 -outline-offset-1 outline-black/5"
-            />
           </div>
         </div>
       </header>

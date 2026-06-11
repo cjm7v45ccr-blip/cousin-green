@@ -316,17 +316,22 @@ function Home() {
             ].map((r) => (
               <figure
                 key={r.a}
-                className="bg-card p-8 border border-border/50 shadow-sm"
+                className="bg-card p-7 flex flex-col"
               >
-                <blockquote className="text-sm italic mb-6 leading-relaxed text-foreground/80">
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-3 w-3 fill-accent text-accent" />
+                  ))}
+                </div>
+                <blockquote className="text-sm mb-6 leading-relaxed text-foreground/80 flex-1">
                   “{r.q}”
                 </blockquote>
-                <figcaption className="flex items-center justify-between">
+                <figcaption className="flex items-center justify-between pt-4 border-t border-border">
                   <span className="text-xs font-bold uppercase tracking-widest">
                     {r.a}
                   </span>
                   <span className="text-[10px] font-mono text-muted-foreground">
-                    Google Review
+                    Google
                   </span>
                 </figcaption>
               </figure>

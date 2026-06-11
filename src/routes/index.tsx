@@ -228,26 +228,30 @@ function Home() {
                   "Artificial Turf", "Snow Removal", "Ice Control",
                 ],
               },
-            ].map((g) => (
-              <div key={g.t} className="bg-card p-8">
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="h-1.5 w-1.5 bg-accent rounded-full" />
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
-                    Verified by Business
-                  </span>
+            ].map((g, idx) => {
+              const Icon = [Leaf, Hammer, Droplets][idx];
+              return (
+                <div key={g.t} className="bg-card p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
+                      Verified
+                    </span>
+                  </div>
+                  <h3 className="font-bold mb-5 uppercase tracking-tight text-sm">
+                    {g.t}
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {g.items.map((i) => (
+                      <li key={i} className="text-xs text-muted-foreground flex items-start gap-2 leading-relaxed">
+                        <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
+                        <span>{i}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="font-bold mb-5 uppercase tracking-tight text-sm">
-                  {g.t}
-                </h3>
-                <ul className="space-y-2">
-                  {g.items.map((i) => (
-                    <li key={i} className="text-xs text-muted-foreground font-mono flex items-center gap-2">
-                      <span className="text-accent">+</span> {i}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

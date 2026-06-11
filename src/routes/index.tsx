@@ -425,7 +425,7 @@ function Home() {
               Wenatchee, WA 98801
             </address>
             <p className="text-sm text-background/60 font-mono">
-              Available 24 Hours / 7 Days
+              Mon – Sun · 5:00 AM – 9:00 PM
             </p>
           </div>
 

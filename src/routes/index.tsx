@@ -147,63 +147,23 @@ function Home() {
       {/* Services */}
       <section className="px-4 py-24 bg-card">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
             <div>
               <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-2">
                 What We Do
               </span>
-              <h2 className="text-4xl font-extrabold tracking-tighter">
-                SPECIALIZED TRADES
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter">
+                FULL-SERVICE LANDSCAPING
               </h2>
             </div>
             <p className="text-muted-foreground max-w-sm text-sm font-medium leading-relaxed">
-              From structural masonry to seasonal maintenance, we handle the
-              heavy lifting to keep your property resilient.
+              From design and earthmoving to irrigation, turf, and year-round
+              snow &amp; ice control — handled in-house by our crew.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
-            {[
-              {
-                n: "01",
-                t: "Yard Maintenance",
-                d: "Weekly mowing, pruning, and seasonal cleanups to keep aesthetics sharp.",
-              },
-              {
-                n: "02",
-                t: "Block Walls",
-                d: "Structural retaining walls designed for the rolling terrain of the Wenatchee Valley.",
-              },
-              {
-                n: "03",
-                t: "Grass Installation",
-                d: "Fresh sod and seed solutions optimized for the Washington climate.",
-              },
-              {
-                n: "04",
-                t: "General Landscaping",
-                d: "Custom site planning and terrain shaping for residential properties.",
-              },
-            ].map((s) => (
-              <div
-                key={s.n}
-                className="bg-card p-8 hover:bg-primary/5 transition-colors"
-              >
-                <span className="text-xs font-mono text-muted-foreground mb-4 block">
-                  {s.n}
-                </span>
-                <h3 className="font-bold mb-3 uppercase tracking-tight">
-                  {s.t}
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {s.d}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Construction & Installation capabilities */}
-          <div className="mt-20 grid lg:grid-cols-3 gap-px bg-border border border-border">
+          {/* Verified service capabilities */}
+          <div className="grid lg:grid-cols-3 gap-px bg-border border border-border">
             {[
               {
                 t: "Trees & Shrubs",

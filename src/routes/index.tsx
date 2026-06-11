@@ -93,6 +93,53 @@ function Home() {
         </div>
       </header>
 
+      {/* About / History */}
+      <section className="px-4 py-24 border-y border-border bg-background">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-5">
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-3">
+              Est. 2008 · PNW Family-Owned
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-[0.95] mb-6">
+              DIGGING, BUILDING &amp; GROWING SINCE <span className="text-accent italic">2008.</span>
+            </h2>
+            <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+              "Where Quality is Our Calling… and Cousins Get It Done."
+            </p>
+          </div>
+          <div className="lg:col-span-7 space-y-6 text-sm leading-relaxed text-foreground/80">
+            <p>
+              The Cousin Landscape is a PNW family-owned business with over
+              <strong className="text-foreground"> 10 years of experience </strong>
+              delivering reliable, high-quality landscaping services across
+              residential and commercial properties. From retaining walls and
+              patios to artificial turf, sod, and irrigation systems, we
+              create outdoor spaces built to last.
+            </p>
+            <p>
+              We also offer snow removal and ice control, so you can count on
+              us year-round for peace of mind. When you work with us, you're
+              not just hiring a landscaping crew — you're getting a trusted
+              local partner who takes pride in every detail.
+            </p>
+            <div className="grid grid-cols-3 gap-px bg-border border border-border mt-8">
+              {[
+                { k: "10+", v: "Years Experience" },
+                { k: "2008", v: "Year Established" },
+                { k: "4.3★", v: "Google Rating" },
+              ].map((s) => (
+                <div key={s.v} className="bg-card p-5">
+                  <div className="text-2xl font-extrabold tracking-tighter">{s.k}</div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
+                    {s.v}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="px-4 py-24 bg-card">
         <div className="max-w-6xl mx-auto">

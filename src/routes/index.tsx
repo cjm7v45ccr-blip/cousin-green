@@ -75,14 +75,15 @@ function Home() {
               Professional yard maintenance, structural block walls, and grass
               installation for Wenatchee homeowners who value detail over gloss.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={PHONE_HREF}
-                className="bg-foreground text-background px-8 py-4 text-sm font-bold uppercase tracking-widest ring-1 ring-foreground/10 hover:bg-accent hover:text-accent-foreground hover:ring-accent transition-all"
+                className="inline-flex items-center gap-2 bg-foreground text-background px-7 py-4 text-sm font-bold uppercase tracking-widest hover:bg-accent hover:text-accent-foreground transition-colors"
               >
+                <Phone className="h-4 w-4" />
                 Call for Quote
               </a>
-              <div className="flex items-center gap-3 px-6 py-4 border border-border bg-card/50 text-xs font-mono font-medium uppercase">
+              <div className="inline-flex items-center gap-2.5 px-5 py-4 border border-border bg-card/50 text-xs font-mono font-medium uppercase">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
